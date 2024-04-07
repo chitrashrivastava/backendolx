@@ -9,7 +9,7 @@ const fileupload=require('express-fileupload')
 const app = express();
 
 // Body parser middleware
-app.use(cors({ credentials: true, origin: true }));
+app.use(cors({ credentials: true, origin: "https://frontendolx.vercel.app/" }));
 
 app.use(express.json());
 
