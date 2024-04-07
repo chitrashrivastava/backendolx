@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/olx')
+mongoose.connect('mongodb+srv://chitrashrivastava64:5qZPjBxQQDA0gyPP@cluster0.lbykw0o.mongodb.net/OLXDB?retryWrites=true&w=majority&appName=Cluster0')
 .then(()=>{
     console.log('DB connected')
 })
