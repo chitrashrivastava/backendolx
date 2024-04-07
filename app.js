@@ -31,6 +31,11 @@ const logger = require('morgan');
 app.use(logger('tiny'));
 
 // Your routes
+
+app.get('/', (req, res) => {
+    res.send("hello");
+});
+
 app.use('/', require('./routes/user'));
 app.all("*", (req, res, next) => {
     next(new ErrorHandler(`requested url not found ${req.url}`, 404));
@@ -41,3 +46,4 @@ app.use(generatedErrors);
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
+
