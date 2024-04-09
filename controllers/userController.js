@@ -113,24 +113,3 @@ exports.signout = catchAsyncErrors(async (req, res, next) => {
     res.json({ message: "Successfully Signout" })
 })
 
-
-exports.sellItem=catchAsyncErrors(async(req,res,next)=>{
-    const {productname,price,description}=req.body
-    try {
-        const { data, name: fileName } = req.files.image; // Accessing data and name properties from uploaded image
-
-        // Upload image to ImageKit
-        const uniqueFileName = `${Date.now()}_${uuidv4()}_${productname}`;
-
-        const { fieldId, url } = await imagekit.upload({
-            file: data,
-            fileName: uniqueFileName,
-            folder: '/olx' // Assuming you want to upload women's product images to this folder
-        });
-    }
-    catch(error){
-        return next(new ErrorHandler(error.message, 500));
-
-    }
-
-})

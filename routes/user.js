@@ -8,9 +8,9 @@ router.post('/user', isAuthenticated, currentUser)
 
 router.post('/update/:id',isAuthenticated,userUpdate)
 
-router.post('/uploadproduct',userProduct)
+router.post('/uploadproduct',isAuthenticated, userProduct)
 
 router.post('/login',userSignin)
 
-router.get('/logout',signout)
+router.get('/logout',isAuthenticated,signout)
 module.exports=router
