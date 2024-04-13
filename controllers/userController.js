@@ -87,9 +87,10 @@ exports.userProduct = catchAsyncErrors(async (req, res, next) => {
 
         // Construct product object with uploaded image URL
         const product = {
-            productName: uploadData.productName,
+            productname: uploadData.productname,
             price: uploadData.price,
             description: uploadData.description,
+            categories: uploadData.category,
             image: {
                 fieldId: imageUploadResponse.fileId,
                 url: imageUploadResponse.url
@@ -113,3 +114,10 @@ exports.signout = catchAsyncErrors(async (req, res, next) => {
     res.json({ message: "Successfully Signout" })
 })
 
+exports.fetchCar = catchAsyncErrors(async(req,res,next) =>{
+   const {dy} =req.params //param se dy nikal liya
+   const all = await Product.find({categories:dy}) 
+   res.json({
+    placement:all
+   })
+    })

@@ -17,6 +17,9 @@ const productSchema = new mongoose.Schema({
             fieldId: "",
             url: ""
         }
+    },
+    categories:{
+      type:String
     }
 });
 
